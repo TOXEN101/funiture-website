@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const sections = document.querySelectorAll('.store-section , .who-are-we, .our-vision, .why-us');
+    const sections = document.querySelectorAll(' .follow-us , .store-section , .who-are-we, .our-vision, .why-us');
 
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
