@@ -66,6 +66,7 @@
 
 }
 
+
 #store-sections {
     padding: 30px;
 }
@@ -91,6 +92,24 @@
     box-shadow: 10px 10px 5px 0px rgba(24, 26, 27, 0.25);
 }
 
+.store-section {
+    opacity: 0;
+    transform: translateY(50px);
+
+}
+
+.fade-in-up {
+    animation: fadeInUp 1s ease forwards;
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
 footer {
     background-color: #181a1b;
     padding: 5px;
@@ -109,7 +128,7 @@ footer .col-6:nth-child(2) {
 }
 
 .footer-img {
-    width: 200px;
+    width: 150px;
     display: block;
     margin-left: auto;
     margin-right: auto;
