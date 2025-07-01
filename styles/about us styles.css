@@ -2,7 +2,7 @@
     background: linear-gradient(rgba(0, 0, 0, 0.8),
             rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1513694203232-719a280e022f');
 
-    background-size: 100px 100px cover;
+    background-size: 100vw 100vh;
     background-position: center;
     height: 90vh;
     color: white;
@@ -11,20 +11,19 @@
 
 .about-hero h2 {
     text-align: center;
-    font-size: 5rem;
+    font-size: clamp(2.2rem, 10vw, 5rem);
     text-shadow: 0px 10px 10px rgba(0, 0, 0, 0.5);
 }
 
 .who-are-we,
 .our-vision,
 .why-us {
-    background: #f5f5f5;
+    max-width: 1800px;
+    background: var(--content-bg-color);
     margin-top: 15px;
     margin-bottom: 15px;
-    /* border: 2px solid #181a1b; */
-    /* box-shadow: 0px 5px 13px 8px rgba(0, 0, 0, 0.5); */
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-    border-radius: 10px;
+    box-shadow: 0 4px 12px hsla(0, 0%, 0%, 0.1);
+    border-radius: 3px;
 }
 
 .who-are-we-img {
@@ -51,7 +50,6 @@
     width: 100%;
     /* object-fit: contain; */
     height: 100%;
-    border-radius: 10px;
 }
 
 
@@ -59,7 +57,7 @@
 .our-vision-text h2,
 .why-us-text h2 {
     font-size: 3rem;
-    color: #868876;
+    color: var(--secondary-font-color);
     border-bottom: 3px solid #868876;
     text-shadow: 0 5px 5px rgba(0, 0, 0, 0.3);
 }
@@ -68,7 +66,7 @@
 .our-vision-text p,
 .why-us-text p {
     font-size: 2.5rem;
-    color: #181a1b;
+    color: var(--main-font-color);
     text-align: justify;
     /**/
     text-align: justify;
@@ -88,8 +86,6 @@
 .follow-us {
     opacity: 0;
     transform: translateY(50px);
-    /* animation: fadeInUp 1s ease forwards;
-    animation-delay: 0.2s; */
 }
 
 
@@ -105,17 +101,18 @@
 }
 
 .follow-us {
+    max-width: 1800px;
     padding: 2rem;
     margin-top: 2rem;
-    background: #f5f5f5;
-    border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    background: var(--content-bg-color);
+    border-radius: 5px;
+    box-shadow: 0 4px 12px hsla(0, 0%, 0%, 0.1);
     text-align: center;
 }
 
 .follow-us h3 {
     font-size: 2.5rem;
-    color: #60644c;
+    color: var(--secondary-font-color);
     margin-bottom: 1.5rem;
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
@@ -162,6 +159,7 @@
     .why-us-img {
         height: 400px;
         border-radius: 0 0 10px 10px;
+        /* border-radius: 10px; */
     }
 
     .who-are-we .row,
@@ -169,16 +167,88 @@
     .why-us-img .row {
         flex-direction: column;
     }
-}
 
-@media (max-width: 500px) {
     .about-hero {
         background-size: 1500px 1500px;
     }
+}
 
-    .about-hero h2 {
-        text-align: center;
-        font-size: 2.3rem;
+/* contact us styles */
 
-    }
+.contact-form {
+    opacity: 0;
+    transform: translateY(50px);
+    background-color: var(--content-bg-color);
+    margin: 40px auto;
+    max-width: 1800px;
+    padding: 40px 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px hsla(0, 0%, 0%, 0.1);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.contact-form h2 {
+    text-align: center;
+    font-size: clamp(2rem, 5vw, 3rem);
+    color: var(--nav-footer-font-color);
+    margin-bottom: 10px;
+}
+
+.contact-form p {
+    text-align: center;
+    font-size: clamp(1rem, 2vw, 1.7rem);
+    color: var(--nav-footer-font-color);
+    margin-bottom: 30px;
+    max-width: 1800px;
+    margin-inline: auto;
+}
+
+/* Form elements */
+label {
+    font-size: 1.1rem;
+    display: block;
+    margin-bottom: 8px;
+    color: var(--nav-footer-font-color);
+}
+
+input,
+textarea {
+    width: 100%;
+    padding: 12px 16px;
+    border: none;
+    border-bottom: 1px solid hsl(0, 0%, 80%);
+    border-radius: 6px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    background-color: var(--background-color);
+    box-sizing: border-box;
+    margin-bottom: 20px;
+}
+
+input:focus,
+textarea:focus {
+    outline: none;
+    border-color: var(--nav-footer-font-color);
+    box-shadow: 0 0 0 3px hsla(0, 0%, 60%, 0.2);
+    font-weight: 500;
+}
+
+input[type="submit"] {
+    max-width: 300px;
+    display: block;
+    margin: 20px auto 0;
+    padding: 12px 20px;
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    background-color: var(--button-bg-color);
+    color: #f1f1f1;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 8px hsla(0, 0%, 0%, 0.15);
+}
+
+input[type="submit"]:hover {
+    background-color: var(--button-bg-color-hover);
+    transform: translateY(-2px);
 }
