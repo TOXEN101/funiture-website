@@ -13,6 +13,7 @@
 body {
     background-color: var(--background-color);
     color: var(--main-font-color);
+    scroll-behavior: smooth;
 }
 
 .navbar {
@@ -94,9 +95,11 @@ a[role="button"] {
 }
 
 
+
 #store-sections {
     padding: 30px;
     color: var(--main-font-color);
+
 }
 
 #store-sections .card {
@@ -126,6 +129,30 @@ a[role="button"] {
     box-shadow: 10px 10px 5px 0px rgba(24, 26, 27, 0.25);
 }
 
+.scrollDiv {
+    position: fixed;
+    right: 15px;
+    bottom: 30px;
+    z-index: 3;
+    padding: 5px;
+    background-color: var(--button-bg-color);
+    /* max-width: 30px; */
+    display: flex;
+    border-radius: 5px;
+    cursor: pointer;
+    visibility: hidden;
+    transform: 0.03s ease;
+}
+.scrollDiv.active{
+    visibility: visible;
+    transform: 0.30s ease;
+}
+.scrollDiv:hover{
+    transform: scale(1.1) translateY(-5px);
+    box-shadow: 5px 5px 2px 0px rgba(24, 26, 27, 0.25);
+    background-color: var(--button-bg-color-hover);
+}
+
 .store-section {
     opacity: 0;
     transform: translateY(50px);
@@ -145,9 +172,32 @@ a[role="button"] {
 
 
 footer {
-    background-color: var(--nav-footer--bg-color);
+    background-color: var(--background-color);
     padding: 5px;
     color: var(--nav-footer-font-color);
+
+}
+
+.contact-grid {
+    display: grid;
+    margin: 15px;
+    grid-template-columns: repeat(2, 1fr);
+    justify-content: center;
+    column-gap: clamp(1rem, 20vw, 50rem);
+}
+
+.phone-grid-item,
+.whatsapp-grid-item {
+    /* grid-area: whatsapp-grid-item; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+
+.contact-item a {
+    user-select: all;
+    color: var(--secondary-font-color);
 
 }
 
@@ -157,6 +207,7 @@ footer {
     display: block;
     margin-left: auto;
     margin-right: auto;
+    padding: 5px 0px;
 }
 
 /* @media (max-width:2000px) {
@@ -203,6 +254,10 @@ footer {
 @media (max-width:500px) {
     .hero {
         margin-left: -40px;
+    }
+
+    .contact-grid {
+        grid-template-columns: 1fr;
     }
 
     /* .hero h1 {
